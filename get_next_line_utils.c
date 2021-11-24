@@ -6,26 +6,13 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:07:03 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/21 03:09:22 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/24 03:05:43 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int newline_search(char *s)
-{
-	int i;
-	
-	while (s[i])
-	{
-		if (s[i] == '/n')
-			return (i);
-		i++;
-	}
-	return (0);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, int start, int len)
 {
 	char	*new;
 	size_t	i;
@@ -48,12 +35,37 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (new);
 }
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strjoin(const char *s1, const char *s2)
+{
+	int		i;
+	int		j;
+	char	*str;
+
+	if (!s1 || !s2)
+		return (NULL);
+	i = ft_strlen((char *)s2) + ft_strlen((char *)s1);
+	str = malloc(sizeof(char) * (i + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	return (str);
 }
