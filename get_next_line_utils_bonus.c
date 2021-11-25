@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:07:03 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/25 04:00:28 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/25 03:41:07 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line_bonus.h"
 #include "get_next_line.h"
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -25,15 +26,15 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1 = malloc(1);
 		s1[0] = 0;
 	}
-	new = malloc (ft_strlen(s2) + ft_strlen(s1) + 1);
+	new = malloc ((ft_strlen(s2) + ft_strlen(s1) + 1) * sizeof(char));
 	if (!new)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s1[i])
+	while (i < ft_strlen(s1))
 		new[i++] = s1[j++];
 	j = 0;
-	while (s2[j])
+	while (j < ft_strlen(s2))
 		new[i++] = s2[j++];
 	new[i] = '\0';
 	free (s1);
