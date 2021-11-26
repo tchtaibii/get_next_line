@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:07:03 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/25 03:41:07 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/26 23:10:26 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,23 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*new;
-	int		i;
-	int		j;
+	int				i;
+	int				j;
+	char			*new;
+	int				lens1;
+	int				lens2;
 
-	if (!s1 && !s2)
-		return (NULL);
-	if (!s1)
-	{
-		s1 = malloc(1);
-		s1[0] = 0;
-	}
-	new = malloc ((ft_strlen(s2) + ft_strlen(s1) + 1) * sizeof(char));
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	new = malloc((lens1 + lens2 + 1));
 	if (!new)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (i < ft_strlen(s1))
+	while (i < lens1)
 		new[i++] = s1[j++];
 	j = 0;
-	while (j < ft_strlen(s2))
+	while (j < lens2)
 		new[i++] = s2[j++];
 	new[i] = '\0';
 	free (s1);
@@ -57,7 +54,7 @@ char	*ft_substr(char *s, int start, int len)
 {
 	char	*x;
 	int		i;
-	int	 	j;
+	int		j;
 
 	if (!s)
 		return (0);
@@ -67,7 +64,7 @@ char	*ft_substr(char *s, int start, int len)
 	j = 0;
 	while (i < len && s[i])
 		i++;
-	x = malloc((i + 1) * sizeof(char));
+	x = malloc(i + 1);
 	if (!x)
 		return (NULL);
 	while (j < i)

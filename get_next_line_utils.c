@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:07:03 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/25 04:00:28 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/25 22:37:42 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_substr(char *s, int start, int len)
 	j = 0;
 	while (i < len && s[i])
 		i++;
-	x = malloc((i + 1) * sizeof(char));
+	x = malloc(i + 1);
 	if (!x)
 		return (NULL);
 	while (j < i)

@@ -6,11 +6,10 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:02:57 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/25 03:41:49 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/26 21:10:26 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include "get_next_line_bonus.h"
 
 //check if new line exist
@@ -18,9 +17,9 @@ int	check_new_line(char *s)
 {
 	int	i;
 
-	i = 0;
 	if (!s)
 		return (0);
+		i = 0;
 	while (s[i])
 	{
 		if (s[i] == '\n')
@@ -31,7 +30,7 @@ int	check_new_line(char *s)
 }
 
 // (get line) take the chars (BUFFER_SIZE) and storage it in to s
-char	*get_l_bonus(int fd, char *s)
+char	*get_l(int fd, char *s)
 {
 	char	*tmp;
 	int		t;
@@ -54,7 +53,7 @@ char	*get_l_bonus(int fd, char *s)
 }
 
 // (befor new line) for allocate and storage in the str to new line
-char	*ft_bl_bonus(char *s)
+char	*ft_bl(char *s)
 {
 	int	i;
 
@@ -67,7 +66,7 @@ char	*ft_bl_bonus(char *s)
 }
 
 // (after new line) for using the values after new line
-char	*ft_al_bonus(char *s)
+char	*ft_al(char *s)
 {
 	int		i;
 	char	*tmp;
@@ -90,18 +89,18 @@ char	*ft_al_bonus(char *s)
 }
 
 // get next line
-char	*get_next_line_bonus(int fd)
+char	*get_next_line(int fd)
 {
-	static char	*a[10240];
+	static char	*a[1024];
 	char		*l;
 
 	l = NULL;
-	if (fd < 0 && BUFFER_SIZE == 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	a[fd] = get_l_bonus(fd, a[fd]);
+	a[fd] = get_l(fd, a[fd]);
 	if (!a[fd])
 		return (NULL);
-	l = ft_bl_bonus(a[fd]);
-	a[fd] = ft_al_bonus(a[fd]);
+	l = ft_bl(a[fd]);
+	a[fd] = ft_al(a[fd]);
 	return (l);
 }

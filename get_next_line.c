@@ -6,7 +6,7 @@
 /*   By: tchtaibi <tchtaibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:07:07 by tchtaibi          #+#    #+#             */
-/*   Updated: 2021/11/25 03:58:05 by tchtaibi         ###   ########.fr       */
+/*   Updated: 2021/11/26 20:51:52 by tchtaibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*get_next_line(int fd)
 	char		*l;
 
 	l = NULL;
-	if (fd < 0 && BUFFER_SIZE == 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	a = get_l(fd, a);
 	if (!a)
