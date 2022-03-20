@@ -1,4 +1,4 @@
-# get_next_line
+# GET NEXT LINE
 ===============
 
 *Reading a line on a fd is way too tedious.*
